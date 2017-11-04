@@ -13,7 +13,11 @@ import {
   VIcon,
   VGrid,
   VToolbar,
-  transitions
+  transitions,
+  VCard,
+  VTextField,
+  VDataTable,
+  VMenu
 } from 'vuetify'
 import './stylus/main.styl'
 
@@ -30,7 +34,11 @@ Vue.use(Vuetify, {
     VIcon,
     VGrid,
     VToolbar,
-    transitions
+    transitions,
+    VCard,
+    VTextField,
+    VDataTable,
+    VMenu
   }
 })
 

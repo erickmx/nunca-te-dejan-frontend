@@ -74,14 +74,23 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
+
+    <driver></driver>
+
     <v-footer :fixed="fixed" app>
       <span>&copy; 2017</span>
     </v-footer>
+
+
   </v-app>
 </template>
 
 <script>
+  import Driver from '@/components/driver/Driver'
   export default {
+    components: {
+      'driver': Driver
+    },
     data () {
       return {
         clipped: false,
