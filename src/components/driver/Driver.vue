@@ -31,7 +31,7 @@
             ></v-text-field>
           </v-edit-dialog>
         </td>
-        <td class="text-xs-right">{{ props.item.phone }}</td>
+        <td class="text-xs-right">{{ props.item.phoneNumber }}</td>
         <!-- <td class="text-xs-right">{{ props.item.status }}</td> -->
         <td class="text-xs-right">
           <v-edit-dialog
@@ -81,28 +81,24 @@ export default {
           sortable: false,
           value: 'name'
         },
-        { text: 'Telefono', value: 'phone' },
+        { text: 'Telefono', value: 'phoneNumber' },
         { text: 'Estatus', value: 'status' },
         { text: 'Opciones', value: 'options' }
-      ],
-      items: [
-        {
-          value: false,
-          name: 'Erick',
-          phone: 1234567890,
-          status: 'activo',
-          options: 'Editar  Eliminar'
-        },
-        {
-          value: false,
-          name: 'Ana',
-          phone: 1243487478,
-          status: 'servicio',
-          options: 'Editar  Eliminar'
-        }
       ]
     } // end-return
-  } // end-data
+  }, // end-data
+  computed: {
+    items () {
+      const items = this.$store.getters.allDrivers
+      return items.map(item => {
+        return {
+          value: false,
+          options: 'Editar  Eliminar',
+          ...item
+        }
+      })
+    }
+  }
 
 }
 </script>

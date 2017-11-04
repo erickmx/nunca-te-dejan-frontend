@@ -23,6 +23,7 @@ import './stylus/main.styl'
 
 import App from './App'
 import router from './router'
+import { store } from './store'
 
 Vue.use(Vuetify, {
   components: {
@@ -47,6 +48,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   template: '<App/>',
   components: { App }

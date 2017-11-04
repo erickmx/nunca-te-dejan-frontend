@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+export const store = new Vuex.Store({
   state: {
     drivers: [
       { name: 'fulani1', phoneNumber: 3392666579, status: 'libre' },
@@ -19,5 +19,3 @@ const store = new Vuex.Store({
     }
   }
 })
-
-export default store
