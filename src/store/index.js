@@ -11,6 +11,12 @@ const store = new Vuex.Store({
       { name: 'fulano3', phoneNumber: 3374346754, status: 'servicio' },
       { name: 'fulano4', phoneNumber: 3397860638, status: 'servicio' }
     ]
+  },
+  getters: {
+    allDrivers: state => state.drivers,
+    activeDrivers: state => {
+      return state.drivers.filter(driver => driver.status !== 'baja')
+    }
   }
 })
 
