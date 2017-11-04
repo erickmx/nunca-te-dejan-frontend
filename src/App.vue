@@ -74,7 +74,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-
+    <loader color="#10a0a0"></loader>
     <driver></driver>
 
     <v-footer :fixed="fixed" app>
@@ -87,9 +87,11 @@
 
 <script>
   import Driver from '@/components/driver/Driver'
+  import Loader from '@/components/generic/Loader'
   export default {
     components: {
-      'driver': Driver
+      'driver': Driver,
+      'loader': Loader
     },
     data () {
       return {
