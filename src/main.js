@@ -17,7 +17,8 @@ import {
   VCard,
   VTextField,
   VDataTable,
-  VMenu
+  VMenu,
+  VTooltip
 } from 'vuetify'
 import './stylus/main.styl'
 
@@ -39,7 +40,8 @@ Vue.use(Vuetify, {
     VCard,
     VTextField,
     VDataTable,
-    VMenu
+    VMenu,
+    VTooltip
   }
 })
 

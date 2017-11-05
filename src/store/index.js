@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     drivers: [
-      { name: 'fulani1', phoneNumber: 3392666579, status: 'libre' },
+      { name: 'fulano1', phoneNumber: 3392666579, status: 'libre' },
       { name: 'fulano2', phoneNumber: 3366458575, status: 'servicio' },
       { name: 'fulano3', phoneNumber: 3374346754, status: 'servicio' },
       { name: 'fulano4', phoneNumber: 3397860638, status: 'servicio' }
@@ -16,6 +16,27 @@ export const store = new Vuex.Store({
     allDrivers: state => state.drivers,
     activeDrivers: state => {
       return state.drivers.filter(driver => driver.status !== 'baja')
+    },
+    getDriver: (state, getters) => (name) => {
+      return state.drivers.find(driver => driver.name === name)
+    }
+  },
+  mutations: {
+    driverStatus (state, payload) {
+      state.drivers.find(driver => driver.name === payload.name)
+        .status = payload.status
+    },
+    addDriver (state, payload) {
+      state.drivers.push(payload)
+    },
+    removeDriver (state, payload) {
+      const index = state.drivers.findIndex(driver => driver.name === payload.name)
+      state.drivers.splice(index, 1)
+    },
+    modifyDriver (state, payload) {
+      const index = state.drivers.findIndex(driver => driver.name === payload.oldName)
+      const { name, phoneNumber, status } = payload
+      state.drivers[index] = { name, phoneNumber, status }
     }
   }
 })

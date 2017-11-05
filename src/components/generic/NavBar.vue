@@ -1,6 +1,6 @@
 <template>
 
-  <v-container>
+  <div>
 
     <v-navigation-drawer
       clipped
@@ -36,7 +36,7 @@
       </v-toolbar-items>
     </v-toolbar>
 
-  </v-container>
+  </div>
 
 </template>
 
@@ -58,7 +58,41 @@ export default {
   },
   methods: {
     sayHello () {
-      console.log('Hola mundo')
+      console.log('Hola')
+      // let driver = this.$store.getters.getDriver('fulano2')
+      //
+      // console.log(driver)
+      //
+      // this.$store.commit('addDriver', {
+      //   name: 'adsds',
+      //   phoneNumber: 1323432231,
+      //   status: 'baja'
+      // })
+      //
+      // this.$store.commit('driverStatus', {
+      //   name: driver.name,
+      //   status: 'bajado'
+      // })
+      //
+      // driver = this.$store.getters.getDriver('fulano2')
+      // console.log(driver)
+      //
+      // this.$store.commit('modifyDriver', {
+      //   oldName: driver.name,
+      //   name: 'fulanillo',
+      //   phoneNumber: 2367263,
+      //   status: 'loco'
+      // })
+      //
+      // driver = this.$store.getters.getDriver('fulanillo')
+      //
+      // console.log(driver)
+      //
+      // this.$store.commit('removeDriver', {
+      //   name: 'fulanillo'
+      // })
+      //
+      // console.log(this.$store.getters.allDrivers)
     }
   }
 }

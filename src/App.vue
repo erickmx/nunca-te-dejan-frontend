@@ -8,7 +8,24 @@
     <!-- <router-view></router-view> -->
     <nav-bar></nav-bar>
 
-    <v-footer :fixed="fixed" app>
+    <main>
+      <!-- <router-view></router-view> -->
+      <!-- <router-link :to="{ name: '', params: {} }"></router-link> -->
+      <!-- <v-content>
+        <v-container fluid fill-height>
+          <v-layout justify-center align-center>
+            <v-tooltip right>
+              <v-btn icon large :href="source" target="_blank" slot="activator">
+                <v-icon large>code</v-icon>
+              </v-btn>
+              <span>Source</span>
+            </v-tooltip>
+          </v-layout>
+        </v-container>
+      </v-content> -->
+    </main>
+
+    <v-footer app fixed>
       <span>&copy; 2017</span>
     </v-footer>
 
@@ -29,8 +46,11 @@
     },
     data () {
       return {
-        fixed: false
+
       }
+    },
+    props: {
+      source: String
     }
   }
 
