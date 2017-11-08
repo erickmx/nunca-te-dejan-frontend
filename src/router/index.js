@@ -7,6 +7,7 @@ import Employee from '@/components/employee/Employee'
 import Insumo from '@/components/insumo/Insumo'
 import Rent from '@/components/rent/Rent'
 import Vehicle from '@/components/vehicle/Vehicle'
+import Error404 from '@/components/generic/Error404'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/vehicle',
       name: 'Vehicle',
       component: Vehicle
+    },
+    {
+      path: '*',
+      name: 'Error404',
+      component: Error404
     }
   ]
 })
