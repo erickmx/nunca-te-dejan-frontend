@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    Insumo component
+  </div>
 </template>
 
 <script>

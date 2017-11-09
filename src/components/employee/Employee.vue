@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    Employee route
+  </div>
 </template>
 
 <script>

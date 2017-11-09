@@ -12,7 +12,12 @@
     >
       <v-list dense>
 
-        <v-list-tile v-for="menuOption in menuOptions" @click="menuOption.action">
+        <v-list-tile
+          v-for="menuOption in menuOptions"
+          :key="menuOption.name"
+          @click="menuOption.action"
+          :to="menuOption.link"
+        >
           <v-list-tile-action>
             <v-icon> {{menuOption.icons}} </v-icon>
           </v-list-tile-action>
@@ -29,7 +34,13 @@
       <v-toolbar-title>Nunca te dejan</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat v-for="menuOption in menuOptions" @click="menuOption.action">
+        <v-btn
+          flat
+          v-for="menuOption in menuOptions"
+          :key="menuOption.name"
+          @click="menuOption.action"
+          :to="menuOption.link"
+        >
           <v-icon> {{menuOption.icons}} </v-icon>
           {{menuOption.name}}
         </v-btn>
@@ -46,10 +57,12 @@ export default {
     return {
       drawer: true,
       menuOptions: [
-        { name: 'Choferes', icons: 'account_box', action: this.sayHello },
-        { name: 'Clientes', icons: 'account_circle', action: this.sayHello },
-        { name: 'Productos', icons: 'settings', action: this.sayHello },
-        { name: 'Vehiculos', icons: 'car', action: this.sayHello }
+        { name: 'Clientes', icons: 'account_circle', action: this.sayHello, link: '/client' },
+        { name: 'Choferes', icons: 'account_box', action: this.sayHello, link: '/driver' },
+        { name: 'Empleado', icons: 'account_box', action: this.sayHello, link: '/employee' },
+        { name: 'Productos', icons: 'settings', action: this.sayHello, link: '/insumo' },
+        { name: 'Rentas', icons: 'settings', action: this.sayHello, link: '/rent' },
+        { name: 'Vehiculos', icons: 'car', action: this.sayHello, link: '/vehicle' }
       ]
     }
   },

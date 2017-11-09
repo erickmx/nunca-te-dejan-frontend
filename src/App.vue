@@ -9,6 +9,7 @@
     <nav-bar></nav-bar>
 
     <main>
+      <router-view></router-view>
       <!-- <router-view></router-view> -->
       <!-- <router-link :to="{ name: '', params: {} }"></router-link> -->
       <!-- <v-content>

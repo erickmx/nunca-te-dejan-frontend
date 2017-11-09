@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    Rent Component
+  </div>
 </template>
 
 <script>

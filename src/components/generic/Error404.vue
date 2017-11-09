@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    Error component
+  </div>
 </template>
 
 <script>

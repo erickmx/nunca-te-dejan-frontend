@@ -35,7 +35,7 @@ export default new Router({
       component: Employee
     },
     {
-      path: 'insumo',
+      path: '/insumo',
       name: 'Insumo',
       component: Insumo
     },

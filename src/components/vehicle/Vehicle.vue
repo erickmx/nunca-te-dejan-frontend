@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    Vehicle component
+  </div>
 </template>
 
 <script>

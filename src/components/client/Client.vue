@@ -1,5 +1,7 @@
 <template>
-
+  <div>
+    cliente Route
+  </div>
 </template>
 
 <script>
