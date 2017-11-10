@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app ligth>
 
     <!-- rgba(98, 150, 234,.7) -->
     <!-- #10a0a0 -->

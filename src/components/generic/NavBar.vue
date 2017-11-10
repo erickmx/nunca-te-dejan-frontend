@@ -3,6 +3,7 @@
   <div>
 
     <v-navigation-drawer
+      dark
       clipped
       persistent
       v-model="drawer"
@@ -10,7 +11,7 @@
       app
       class="hidden-md-and-up"
     >
-      <v-list dense>
+      <v-list dense dark>
 
         <v-list-tile
           v-for="menuOption in menuOptions"
@@ -29,7 +30,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-toolbar app fixed clipped-left color="primary">
+    <v-toolbar app fixed clipped-left color="primary" dark>
       <v-toolbar-side-icon class="hidden-md-and-up" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Nunca te dejan</v-toolbar-title>
       <v-spacer></v-spacer>
