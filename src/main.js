@@ -18,7 +18,9 @@ import {
   VTextField,
   VDataTable,
   VMenu,
-  VTooltip
+  VTooltip,
+  VForm,
+  VDialog
 } from 'vuetify'
 import './stylus/main.styl'
 
@@ -41,7 +43,9 @@ Vue.use(Vuetify, {
     VTextField,
     VDataTable,
     VMenu,
-    VTooltip
+    VTooltip,
+    VForm,
+    VDialog
   }
 })
 
