@@ -164,6 +164,8 @@ export default {
 
       setTimeout(() => {
         item.loading = false
+        const {name} = item
+        this.$store.commit('removeDriver', name)
       }, 1000)
     },
     addItem () {

@@ -25,8 +25,8 @@ export default {
     addDriver (state, payload) {
       state.drivers.push(payload)
     },
-    removeDriver (state, payload) {
-      const index = state.drivers.findIndex(driver => driver.name === payload.name)
+    removeDriver (state, {name}) {
+      const index = state.drivers.findIndex(driver => driver.name === name)
       state.drivers.splice(index, 1)
     },
     modifyDriver (state, payload) {
