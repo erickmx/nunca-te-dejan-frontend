@@ -7,14 +7,14 @@
       </v-flex>
     </v-layout>
   </v-container>
-  
+
 </template>
 
 <script>
 export default {
   data () {
     return {
-      src: '/static/repair.jpg'
+      src: '/static/repair.png'
     }
   }
 }

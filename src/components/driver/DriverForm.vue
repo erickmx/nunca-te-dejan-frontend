@@ -1,7 +1,7 @@
 <template>
 
   <v-layout row justify-center>
-    <v-dialog v-model="dialog" persistent>
+    <v-dialog v-model="dialog" width="80%" persistent>
       <!-- <v-btn color="primary" dark slot="activator">Open Dialog</v-btn> -->
       <v-card>
         <v-card-title class="headline">Nuevo Chofer</v-card-title>
@@ -37,8 +37,8 @@
 
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="red darken-1" flat @click.native="cancel">Cancelar</v-btn>
-          <v-btn color="green darken-1" flat @click.native=save>Aceptar</v-btn>
+          <v-btn color="red darken-1" flat @click.native="cancel"><v-icon>block</v-icon> Cancelar</v-btn>
+          <v-btn color="green darken-1" flat @click.native="save"><v-icon>check</v-icon> Aceptar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
