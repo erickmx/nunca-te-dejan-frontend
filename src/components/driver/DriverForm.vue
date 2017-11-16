@@ -38,7 +38,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="red darken-1" flat @click.native="cancel"><v-icon>block</v-icon> Cancelar</v-btn>
-          <v-btn color="green darken-1" flat @click.native="save"><v-icon>check</v-icon> Aceptar</v-btn>
+          <v-btn color="green darken-1" :disabled="!valid" flat @click.native="save"><v-icon>check</v-icon> Aceptar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -85,7 +85,7 @@ export default {
         phoneNumber: this.phoneNumber,
         status: this.status
       }
-      console.log(newDriver)
+
       this.$store.commit('addDriver', newDriver)
       // this.dialog = false
       this.$emit('update:dialog', false)
