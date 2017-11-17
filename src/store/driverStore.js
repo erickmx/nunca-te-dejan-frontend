@@ -1,11 +1,12 @@
+import * as axios from 'axios'
 
 export default {
   state: {
     drivers: [
-      { name: 'fulano1', phoneNumber: 3392666579, status: 'libre' },
-      { name: 'fulano2', phoneNumber: 3366458575, status: 'servicio' },
-      { name: 'fulano3', phoneNumber: 3374346754, status: 'servicio' },
-      { name: 'fulano4', phoneNumber: 3397860638, status: 'servicio' }
+      // { name: 'fulano1', phoneNumber: 3392666579, status: 'libre' },
+      // { name: 'fulano2', phoneNumber: 3366458575, status: 'servicio' },
+      // { name: 'fulano3', phoneNumber: 3374346754, status: 'servicio' },
+      // { name: 'fulano4', phoneNumber: 3397860638, status: 'servicio' }
     ]
   },
   getters: {
@@ -36,6 +37,22 @@ export default {
     }
   },
   actions: {
-    allDrivers: state => state.getters.allDrivers
+    allDrivers: ({state, commit}) => {
+      axios.get('http://localhost:3000/api/driver')
+        .then(response => {
+          state.drivers = response.data.drivers
+        })
+        .catch(err => console.log(err))
+    },
+    removeDriver: ({commit}, {name}) => {
+      axios.delete(`http://localhost:3000/api/driver/${name}`)
+        .then(response => commit('removeDriver', name))
+        .catch(err => console.log(err))
+    },
+    addDriver: ({commit}, payload) => {
+      axios.post(`http://localhost:3000/api/driver/`, payload)
+        .then(response => commit('addDriver', response.data.driver))
+        .catch(err => console.log(err))
+    }
   }
 }

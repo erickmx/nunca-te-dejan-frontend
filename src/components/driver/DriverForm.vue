@@ -86,7 +86,8 @@ export default {
         status: this.status
       }
 
-      this.$store.commit('addDriver', newDriver)
+      this.$store.dispatch('addDriver', newDriver)
+      // this.$store.commit('addDriver', newDriver)
       // this.dialog = false
       this.$emit('update:dialog', false)
     },

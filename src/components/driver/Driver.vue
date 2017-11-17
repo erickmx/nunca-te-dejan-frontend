@@ -142,6 +142,7 @@ export default {
   computed: {
     items () {
       const items = this.$store.getters.allDrivers
+      // this.$store.dispatch('allDrivers')
       return items.map(item => {
         return {
           value: false,
@@ -165,7 +166,8 @@ export default {
       setTimeout(() => {
         item.loading = false
         const {name} = item
-        this.$store.commit('removeDriver', name)
+        this.$store.dispatch('removeDriver', {name})
+        // this.$store.commit('removeDriver', name)
       }, 1000)
     },
     addItem () {
@@ -176,6 +178,9 @@ export default {
         this.showForm = true
       }, 1000)
     }
+  },
+  mounted () {
+    this.$store.dispatch('allDrivers')
   }
   // watch: {
   //   loader () {
