@@ -1,3 +1,4 @@
+import * as axios from 'axios'
 
 export default {
   state: {
@@ -16,9 +17,29 @@ export default {
   mutations: {
     addClient (state, payload) {
       state.clients.push(payload)
+    },
+    removeClient (state, {rfc}) {
+      const index = state.clients.findIndex(client => client.rfc === rfc)
+      state.clients.splice(index, 1)
     }
   },
   actions: {
-    allClients: state => state.getters.allClients
+    allClients: ({state, commit}) => {
+      axios.get('http://localhost:3000/api/client')
+        .then(response => {
+          state.client = response.data.client
+        })
+        .catch(err => console.log(err))
+    },
+    removeClient: ({commit}, {name}) => {
+      axios.delete(`http://localhost:3000/api/client/${name}`)
+        .then(response => commit('removeClient', name))
+        .catch(err => console.log(err))
+    },
+    addClient: ({commit}, payload) => {
+      axios.post(`http://localhost:3000/api/client/`, payload)
+        .then(response => commit('addClient', response.data.client))
+        .catch(err => console.log(err))
+    }
   }
 }

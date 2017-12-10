@@ -12,7 +12,7 @@
               outline
               color="success"
               :loading="loading"
-              @click.native="props.item.options.edit"
+              @click.native="addItem"
               :disabled="loading"
             >
               <v-icon>add</v-icon>
@@ -77,9 +77,9 @@
                 <v-btn
                   outline
                   color="info"
-                  :loading="loading"
-                  @click.native="props.item.options.edit"
-                  :disabled="loading"
+                  :loading="props.item.loading"
+                  @click.native="editItem(props.item)"
+                  :disabled="props.item.loading"
                 >
                   <v-icon>edit</v-icon>
                   <span slot="loader" class="custom-loader">
@@ -89,9 +89,9 @@
                 <v-btn
                   outline
                   color="error"
-                  :loading="loading"
-                  @click.native="props.item.options.delete"
-                  :disabled="loading"
+                  :loading="props.item.loading"
+                  @click.native="deleteItem(props.item)"
+                  :disabled="props.item.loading"
                 >
                   <v-icon>delete</v-icon>
                   <span slot="loader" class="custom-loader">
@@ -136,7 +136,8 @@ export default {
         { text: 'Estatus', value: 'status' },
         { text: 'Opciones', value: 'options' }
       ],
-      loading: false
+      loading: false,
+      showForm: false
     } // end-return
   }, // end-data
   computed: {
@@ -145,45 +146,39 @@ export default {
       return items.map(item => {
         return {
           value: false,
-          options: {
-            'edit': event => {
-              this.loading = true
-              const l = this.loading
-              this[l] = !this[l]
-
-              setTimeout(() => {
-                this[l] = false
-                this.loading = false
-              }, 3000)
-
-              // this.loading = null
-            },
-            'delete': event => {
-              this.loading = true
-              const l = this.loading
-              this[l] = !this[l]
-
-              setTimeout(() => {
-                this[l] = false
-                this.loading = false
-              }, 3000)
-            }
-          },
+          loading: false,
           ...item
         }
       })
     }
   },
-  watch: {
-    loader () {
-      const l = this.loading
-      this[l] = !this[l]
+  methods: {
+    deleteItem (item) {
+      item.loading = true
 
       setTimeout(() => {
-        this[l] = false
-      }, 3000)
+        item.loading = false
+        const {rfc} = item
+        this.$store.commit('removeClient', rfc)
+      }, 1000)
+    },
+    editItem (item) {
+      item.loading = true
 
-      this.loading = null
+      setTimeout(() => {
+        item.loading = false
+      }, 1000)
+    },
+    addItem () {
+      this.loading = true
+
+      setTimeout(() => {
+        this.loading = false
+        this.showForm = true
+      }, 1000)
+    },
+    mounted () {
+      this.$store.dispatch('allClients')
     }
   }
 

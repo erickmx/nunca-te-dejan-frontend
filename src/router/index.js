@@ -8,6 +8,7 @@ import Insumo from '@/components/insumo/Insumo'
 import Rent from '@/components/rent/Rent'
 import Vehicle from '@/components/vehicle/Vehicle'
 import Error404 from '@/components/generic/Error404'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -18,6 +19,11 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/client',
