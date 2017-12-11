@@ -166,8 +166,8 @@ export default {
       setTimeout(() => {
         item.loading = false
         const {name} = item
-        this.$store.dispatch('removeDriver', {name})
-        // this.$store.commit('removeDriver', name)
+        this.$store.commit('removeDriver', {name})
+        // this.$store.dispatch('removeDriver', {name})
       }, 1000)
     },
     addItem () {
@@ -180,7 +180,8 @@ export default {
     }
   },
   mounted () {
-    this.$store.dispatch('allDrivers')
+    this.$store.getters.allDrivers
+    // this.$store.dispatch('allDrivers')
   }
   // watch: {
   //   loader () {

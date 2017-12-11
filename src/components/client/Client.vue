@@ -3,6 +3,8 @@
     <v-layout row wrap align-center>
       <v-flex class="text-xs-center">
 
+        <client-form :dialog.sync="showForm"/>
+
         <v-card>
           <v-card-title>
             Clientes
@@ -112,10 +114,13 @@
 </template>
 
 <script>
-export default {
 
+import ClientForm from '@/components/client/ClientForm'
+
+export default {
   name: 'client',
   components: {
+    'client-form': ClientForm
   },
   data () {
     return {

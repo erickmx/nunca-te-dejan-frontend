@@ -2,10 +2,9 @@
 
   <v-layout row justify-center>
     <v-dialog v-model="dialog" width="80%" persistent>
-      <!-- <v-btn color="primary" dark slot="activator">Open Dialog</v-btn> -->
       <v-card>
-        <v-card-title class="headline">Nuevo Chofer</v-card-title>
-        <v-card-text>Ingrese los datos del nuevo chofer</v-card-text>
+        <v-card-title class="headline">Nuevo Cliente</v-card-title>
+        <v-card-text>Ingrese los datos del nuevo clienter</v-card-text>
 
         <v-form v-model="valid">
           <v-text-field
@@ -27,7 +26,7 @@
           <v-text-field
             label="Direccion"
             v-model="address"
-            :rules="addresRules"
+            :rules="addressRules"
             :counter="50"
             required
           ></v-text-field>
@@ -36,6 +35,7 @@
             label="PhoneNumber"
             v-model="phoneNumber"
             :rules="phoneNumberRules"
+            :counter="10"
             required
           ></v-text-field>
 
@@ -87,7 +87,7 @@ export default {
     return {
       valid: false,
       rfc: '',
-      rfcRules:[
+      rfcRules: [
         v => !!v || 'RFC is required',
         v => v.length <= 13 || 'RFC must be less than 20 characters'
       ],
@@ -97,7 +97,7 @@ export default {
         v => v.length <= 20 || 'Name must be less than 20 characters'
       ],
       address: '',
-      nameRules: [
+      addressRules: [
         v => !!v || 'Adress is required',
         v => v.length <= 50 || 'Addres must be less than 50 characters'
       ],
@@ -119,15 +119,15 @@ export default {
         v => /\d/.test(v) || 'vehiculos must be valid'
       ],
       saldo: 0,
-      saldoRules: {
+      saldoRules: [
         v => !!v || 'Saldo is required',
         v => /\d[.?]\d/.test(v) || 'saldo must be a number'
-      },
+      ],
       status: 'activo',
       statusRules: [
         v => !!v || 'Status is required',
         v => /[a-zA-Z]+/.test(v) || 'Status must not be number'
-      ]
+      ],
       dialog: false
     }// end return
   }, // end data
@@ -139,12 +139,12 @@ export default {
         addres: this.addres,
         phoneNumber: this.phoneNumber,
         email: this.email,
-        vehiculosacargo: vehiculos,
+        vehiculosacargo: this.vehiculos,
         saldo: this.saldo,
         status: this.status
       }
 
-      this.$store.dispatch('addClient', newClient)
+      this.$store.commit('addClient', newClient)
       this.$emit('update:dialog', false)
     },
     cancel () {
